@@ -3,13 +3,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const Sequelize = require('sequelize');
-
-// Option 1: Passing parameters separately
-const db = new Sequelize('codegig', 'bilush', '5346', {
-  host: 'localhost',
-  dialect: 'postgres',
-});
+const db = require('./config/database');
 
 db.authenticate()
   .then(() => console.log('Database connected...'))
