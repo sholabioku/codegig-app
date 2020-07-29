@@ -16,12 +16,12 @@ router.get('/', (req, res) =>
 // Add a Gig
 router.get('/add', (req, res) => {
   const data = {
-    title: 'Looking for a React Developer',
-    technologies: 'react,javascript,html,css',
-    budget: '$3000',
+    title: 'Simple Wordpress Website',
+    technologies: 'wordpress,php,html,css',
+    budget: '$1000',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    contact_email: 'shola@gmail.com',
+    contact_email: 'bilush@gmail.com',
   };
 
   let { title, technologies, budget, description, contact_email } = data;
