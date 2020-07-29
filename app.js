@@ -1,7 +1,12 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const Handlebars = require('handlebars');
 const path = require('path');
+
+const {
+  allowInsecurePrototypeAccess,
+} = require('@handlebars/allow-prototype-access');
 
 const db = require('./config/database');
 
@@ -11,7 +16,13 @@ db.authenticate()
 
 const app = express();
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine(
+  'handlebars',
+  exphbs({
+    defaultLayout: 'main',
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+  })
+);
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => res.send('INDEX'));
