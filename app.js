@@ -25,12 +25,15 @@ app.engine(
 );
 app.set('view engine', 'handlebars');
 
-// Index route
-
-app.get('/', (req, res) => res.render('index', { layout: 'landing' }));
+// Body parser
+app.use(bodyParser(express.urlencoded({ extended: false })));
 
 // Set Static Folder
 app.use(express.static(path.join((__dirname, 'public'))));
+
+// Index route
+
+app.get('/', (req, res) => res.render('index', { layout: 'landing' }));
 
 // Gig routes
 app.use('/gigs', require('./routes/gigs'));
